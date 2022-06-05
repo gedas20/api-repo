@@ -1,29 +1,34 @@
 <template>
-  <CryptoExchangeRates
-    :cryptoCurrencies="cryptoExchangeRateData"
-  />
- 
-  <FiatExchangeRates
-    :fiatCurrencies="fiatExchangeRateData"
-  />
-
-  <CommodityExchangeRates
-    :commodities="commodityExchangeRateData"
-  />
-
+  <h1>Exchange Rates To BTC</h1>
+  <div class="flex-container">
+    <div>
+      <ExchangeRates
+        title="Crypto"
+        :currencies="cryptoExchangeRateData"
+      />
+    </div>
+    <div>
+      <ExchangeRates
+        title="Fiat"
+        :currencies="fiatExchangeRateData"
+      />
+    </div>
+    <div>
+      <ExchangeRates
+        title="Commodity"
+        :currencies="commodityExchangeRateData"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
-  import CryptoExchangeRates from './components/CryptoExchangeRates.vue'
-  import FiatExchangeRates from './components/FiatExchangeRates.vue'
-  import CommodityExchangeRates from './components/CommodityExchangeRates.vue'
+  import ExchangeRates from './components/ExchangeRates.vue'
 
   export default {
     name: 'App',
     components: {
-      CryptoExchangeRates,
-      FiatExchangeRates,
-      CommodityExchangeRates
+      ExchangeRates,
     },
     data() {
       return {
@@ -39,10 +44,9 @@
         fetch('https://api.coingecko.com/api/v3/exchange_rates')
           .then(response => {
             if (response.ok) {
+              this.apiDataLoaded = true;
               return response.json();
-
             } else {
-
               this.error = 'Failed to fetch data.';
             }
           })
@@ -69,12 +73,10 @@
                 }
               }
             } else {
-
               this.error = 'Failed to fetch data.';
             }
           })
           .catch(() => {
-
               this.error = 'Failed to fetch data.';
           });
       },
@@ -93,5 +95,15 @@
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+  }
+  .flex-container {
+    display: flex;
+    background-color: #fff;
+  }
+  .flex-container > div {
+    flex: 1;
+    background: #fff;
+    padding: .5em;
+    margin: .5em;
   }
 </style>
