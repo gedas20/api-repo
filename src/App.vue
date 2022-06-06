@@ -115,7 +115,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    margin-top: 20px;
   }
   .flex-container {
     display: flex;
@@ -143,10 +143,5 @@
     color: #842029;
     background-color: #f8d7da;
     border-color: #f5c2c7;
-  }
-  .info {
-    color: #333;
-    background-color: #fff;
-    border-color: #333;
   }
 </style>
