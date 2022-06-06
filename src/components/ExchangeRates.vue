@@ -6,7 +6,7 @@
   </tr>
   <tr> 
     <th>Name</th>
-    <th>Value In BTC</th>
+    <th>Rate</th>
   </tr>
   </thead>
   <tbody>
