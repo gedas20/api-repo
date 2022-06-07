@@ -35,11 +35,6 @@
           required: true
       }
     },
-    data() {
-      return {
-        test: '',
-      }
-    },
     methods : {
       showSymbol(currencyName) {
           this.$emit("showSymbolEvent", currencyName);
